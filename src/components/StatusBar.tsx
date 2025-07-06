@@ -132,15 +132,17 @@ export const StatusBar = ({
       <div className="mt-4 pt-4 border-t border-border/50">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
           <div className="flex items-center gap-4">
-            <span>🔐 بياناتك آمنة محلياً</span>
-            <span>⚡ سرعة فائقة</span>
-            <span>🎨 جودة عالية</span>
+            <span>🔐 معالجة محلية 100% آمنة</span>
+            <span>⚡ GPU Turbo Engine</span>
+            <span>🎨 جودة استوديو احترافية</span>
+            <span>🚀 تحديثات ذكية مستمرة</span>
           </div>
           
           <div className="flex items-center gap-4">
-            <span>Model: Stable Diffusion XL</span>
-            <span>Resolution: 1024x1024</span>
-            <span>Format: PNG/JPG</span>
+            <span>Engine: SDXL Turbo + ControlNet</span>
+            <span>Resolution: 2048x2048 HDR</span>
+            <span>Format: RAW/PNG/HEIF</span>
+            <span>Processing: CUDA/OpenCL</span>
           </div>
         </div>
       </div>

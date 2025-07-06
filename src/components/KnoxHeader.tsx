@@ -18,15 +18,15 @@ export const KnoxHeader = () => {
             </div>
           </div>
           
-          <div className="text-right lg:text-left">
+        <div className="text-right lg:text-left">
             <h1 className="text-3xl lg:text-4xl font-bold text-neon mb-2">
               KNOX VERSA
             </h1>
             <p className="text-secondary-glow text-lg font-medium">
-              Vanity Studio Pro MAX
+              Vanity Studio Pro MAX v2.5
             </p>
             <p className="text-muted-foreground text-sm">
-              استوديو الجمال الذكي المحلي
+              استوديو الجمال الذكي المحلي - Professional AI Beauty Suite
             </p>
           </div>
         </div>
@@ -35,17 +35,17 @@ export const KnoxHeader = () => {
         <div className="flex items-center gap-3 flex-wrap">
           <Badge className="status-online">
             <Zap className="w-3 h-3 mr-1" />
-            VIP Mode On
+            GPU Accelerated
           </Badge>
           
           <Badge className="glass-card px-3 py-1 border-primary/30">
             <Sparkles className="w-3 h-3 mr-1" />
-            Model: SDXL
+            Stable Diffusion XL Turbo
           </Badge>
           
           <Badge className="glass-card px-3 py-1 border-secondary/30">
             <Crown className="w-3 h-3 mr-1" />
-            Pro Max
+            Enterprise License
           </Badge>
         </div>
       </div>
@@ -53,14 +53,16 @@ export const KnoxHeader = () => {
       {/* Tagline */}
       <div className="mt-6 text-center">
         <p className="text-lg text-muted-foreground">
-          🚀 <span className="text-primary-glow">انطلاق نحو الكمال البصري والخصوصية المطلقة</span> ✨
+          🚀 <span className="text-primary-glow">تقنية الذكاء الاصطناعي المتطورة لتحسين الصور - 100% محلي وآمن</span> ✨
         </p>
         <div className="flex items-center justify-center gap-2 mt-2 text-sm text-muted-foreground">
-          <span>🔐 خصوصية مطلقة</span>
+          <span>🔐 بياناتك محمية محلياً</span>
           <span>•</span>
-          <span>⚡ معالجة محلية</span>
+          <span>⚡ معالجة فورية بالـ GPU</span>
           <span>•</span>
-          <span>🎨 إبداع بلا حدود</span>
+          <span>🎨 10 استوديوهات متخصصة</span>
+          <span>•</span>
+          <span>🌟 جودة احترافية</span>
         </div>
       </div>
     </header>
