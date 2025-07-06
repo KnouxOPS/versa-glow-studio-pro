@@ -2,41 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* KNOX VERSA Design System - Advanced Glassmorphism & Neon Effects */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
+    /* Dark Base Colors */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    
+    /* Glassmorphism Cards */
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 95%;
+    
+    /* Neon Primary Colors */
+    --primary: 282 100% 70%;
     --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
+    --primary-glow: 282 100% 85%;
+    
+    /* Neon Secondary Colors */
+    --secondary: 195 100% 65%;
+    --secondary-foreground: 222 47% 4%;
+    --secondary-glow: 195 100% 80%;
+    
+    /* Accent Neon */
+    --accent: 282 100% 70%;
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 282 100% 85%;
+    
+    /* Muted Glass */
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    
+    /* Borders & Inputs with Glass Effect */
+    --border: 222 47% 15%;
+    --input: 222 47% 10%;
+    --ring: 282 100% 70%;
+    
+    /* Glassmorphism Variables */
+    --glass-bg: 222 47% 8% / 0.1;
+    --glass-border: 210 40% 98% / 0.1;
+    --glass-backdrop: blur(20px);
+    
+    /* Neon Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(282 100% 70%), hsl(195 100% 65%));
+    --gradient-secondary: linear-gradient(45deg, hsl(195 100% 65%), hsl(282 100% 70%));
+    --gradient-dark: linear-gradient(135deg, hsl(222 47% 4%), hsl(222 47% 8%));
+    
+    /* Neon Shadows & Glows */
+    --shadow-neon-primary: 0 0 30px hsl(282 100% 70% / 0.5);
+    --shadow-neon-secondary: 0 0 30px hsl(195 100% 65% / 0.5);
+    --shadow-glass: 0 8px 32px hsl(222 47% 4% / 0.3);
+    
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +122,135 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-dark);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Effects */
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-2xl;
+    background: hsl(var(--glass-bg));
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-panel {
+    @apply glass-card p-6 transition-all duration-300 hover:bg-white/10;
+  }
+  
+  .neon-glow-primary {
+    box-shadow: var(--shadow-neon-primary);
+  }
+  
+  .neon-glow-secondary {
+    box-shadow: var(--shadow-neon-secondary);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  /* Knox Versa Button Variants */
+  .btn-neon {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-300;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-neon-primary);
+    border: 1px solid hsl(var(--primary));
+  }
+  
+  .btn-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-neon-primary), 0 10px 30px hsl(var(--primary) / 0.3);
+  }
+  
+  .btn-glass {
+    @apply glass-card px-6 py-3 font-medium transition-all duration-300 hover:bg-white/15;
+  }
+  
+  /* Panel Navigation */
+  .panel-nav {
+    @apply glass-card p-1 flex items-center space-x-2 overflow-x-auto;
+  }
+  
+  .panel-tab {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 whitespace-nowrap;
+    @apply text-muted-foreground hover:text-foreground hover:bg-white/10;
+  }
+  
+  .panel-tab.active {
+    @apply text-primary bg-primary/20;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  
+  /* Drag & Drop Zone */
+  .drop-zone {
+    @apply glass-card p-8 border-2 border-dashed border-primary/30 rounded-2xl;
+    @apply transition-all duration-300 hover:border-primary/60 hover:bg-primary/5;
+  }
+  
+  .drop-zone.dragover {
+    @apply border-primary bg-primary/10;
+    box-shadow: var(--shadow-neon-primary);
+  }
+  
+  /* Image Preview */
+  .image-preview {
+    @apply glass-card p-4 rounded-2xl overflow-hidden;
+  }
+  
+  /* Neon Text Effects */
+  .text-neon {
+    @apply text-primary;
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.8);
+  }
+  
+  .text-neon-secondary {
+    @apply text-secondary;
+    text-shadow: 0 0 10px hsl(var(--secondary) / 0.8);
+  }
+  
+  /* Animations */
+  .pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes pulse-neon {
+    from {
+      box-shadow: var(--shadow-neon-primary);
+    }
+    to {
+      box-shadow: var(--shadow-neon-primary), 0 0 50px hsl(var(--primary) / 0.8);
+    }
+  }
+  
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Status Indicators */
+  .status-indicator {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .status-online {
+    @apply bg-green-500/20 text-green-400 border border-green-500/30;
+    box-shadow: 0 0 15px hsl(142 76% 36% / 0.3);
+  }
+  
+  .status-processing {
+    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+    box-shadow: 0 0 15px hsl(45 93% 47% / 0.3);
   }
 }
